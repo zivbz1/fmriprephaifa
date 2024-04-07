@@ -7,7 +7,7 @@ fmriPrep is a builtin pipeline that allow high quality preprocessing (https://fm
 
 # Files Description
 1. CreateBIDS.py -- A short script that will convert raw DICOM files into to NIFTI.GZ, and then create a BIDS compatible structure (https://bids.neuroimaging.io/)
-2. fmriprep_onesub_onLocal.txt -- an example how to run fmriprep using docker (on the Linux computer in the lab)
+2. fmriprep_onesub_onLocal.txt -- an example how to run fmriprep using docker (on a physical computer)
 3. FmriPrep_singularity.sh -- A geenral script for running N subjects in the HPC (High Performance Cluster) at Yale (https://research.computing.yale.edu/services/high-performance-computing).
 
 # FreeSurfer License File 
