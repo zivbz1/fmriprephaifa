@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 A short script that will convert raw DICOM files into to NIFTI.GZ, and then create a BIDS compatible structure (https://bids.neuroimaging.io/)
+Created By: Or Duek, February 2019
 Updated by: Ziv Ben-Zion, April 2024
 """
 
