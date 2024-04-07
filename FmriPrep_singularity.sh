@@ -1,27 +1,36 @@
 #!/bin/bash
-#
-# The fMRIPrep script is meant to streamline the preprocessing of fMRI dataset.
-# The input is a bids dataset 
-# The output is preprocessed data set ready for first level analysis. 
-# The script can be run on the complete dataset or every # subjects. Make sure all subjects are ran on the same fMRIPrep version.
-# This is a bash script and should be ran from the HPC terminal (HPC desktop/shell/VScode)
-# This script uses full path, hence, you do not have to be in a spesific directory to run it. 
-# Tip, create a new folder and run the script from it as the script produce (2*number of subject) log files
-#
-# Inorder for fMRIPrep to work cleanly without the need to create/load conda enviroment it is packed into a containr named singularity
-# The singularity is packed in an img file (no need to load a singulrity module).
-# This script loads the fMRIprep img file and automatically runs all the preprocessing phases on the bids compatible dataset.
-# In order to run it, you will have to validate the dataset using
-# http://bids-standard.github.io/bids-validator/
-# or add the --skip-bids-validation decoration. 
-#
-# Once your dataset is ready (bids validated/decided to ignore) 
-# 1. change the name of the job (what ever you feel like) on line 25
-# 2. Change the number of participants on line 26  and change email addres on line 36
-# 3. add a list of subjects
-# 4. adjust directories path
-# 5. From the HPC terminal run using the command "sbatch FmriPrep_singularity.sh"
-#
+"""
+Created By: Or Duek, February 2019
+Updated by: Ziv Ben-Zion, April 2024
+
+This script is meant to streamline the preprocessing of structural and functional MRI dataset for 
+everyone using the MRI at Haifa University, to create a unified standardized pipeline.
+
+The script can be run on the complete dataset or a specific number of subjects. 
+It is important to make sure that we run all of our subjects on the same fMRIPrep version.
+
+This is a bash script and should be ran from the HPC terminal (HPC desktop/shell/VScode)
+It uses full file/folder path, hence there is no need to be in a specific directory to run it.
+
+In order for fMRIPrep to work cleanly without the need to create/load "conda" environment, it is packed into a containr named "singularity".
+The singularity is packed in an image file ("img"), so there is no need to load a singulrity module.
+The script loads the fMRIprep img file and automatically runs all the preprocessing phases on the BIDS compatible dataset.
+
+In order to validtae the BIDS dataset, you can use the following link: http://bids-standard.github.io/bids-validator/
+You can also ignore the validation by adding the "--skip-bids-validation" decoration. 
+
+Input: BIDS Dataset (created using "createBIDS" script).
+
+Output: Preprocessed dataset ready for first-level analysis. 
+
+The only changes that need to be made to personalize this script:
+1. Changing the name of the job on line 34 (any name will be fine) 
+2. Changing the number of participants on line 35  
+3. Changing the email address on line 45
+4. Adjusting the directories paths 
+
+To run this script from the HPC terminal, use the command: "sbatch FmriPrep_singularity.sh"
+"""
 #SBATCH --j Aging_1_47s # job name
 #SBATCH --array=1-47 # number of participants as range starting at 1 (i.e., for 5 participants: 1-5)
 #SBATCH --time=48:00:00 # HPC will give you this amount of time to run the process. This is usually enough time
