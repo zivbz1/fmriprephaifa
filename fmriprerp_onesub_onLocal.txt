@@ -1,7 +1,10 @@
-# an option to run local fmriPrep (on Linux computer in the lab)
+"""
+A short script to run fmriPrep locally (on a physical computer)
+
+Created By: Or Duek, February 2019
+Updated by: Ziv Ben-Zion, April 2024
+"""
 
 docker run --rm -it -v /media/Data/reversal_NIFTI_BIDS/:/data:ro -v /media/Data/output2:/out -v /home/or/Downloads/freesurferLicense/:/freesurferLicense -v /media/Data/docker/:/work poldracklab/fmriprep:1.2.6 /data /out participant --nthreads 8 -w /work --fs-license-file /freesurferLicense/license.txt --low-mem --anat-only
-
-
 
 fmriprep-docker /media/Data/reversal_NIFTI_BIDS/ /media/Data/output2 participant --fs-license-file /home/or/Downloads/freesurferLicense/license.txt -w /media/Data/work/ --low-mem --anat-only --nthreads 8 --ignore slicetiming --skip_bids_validation
