@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Fri Feb 15 15:02:13 2019
-
-@author: Or Duek
-A short script that will convert to NIFTI.GZ (from raw DICOM data) and then create a BIDS compatible structure
+A short script that will convert raw DICOM files into to NIFTI.GZ, and then create a BIDS compatible structure (https://bids.neuroimaging.io/)
+Updated by: Ziv Ben-Zion, April 2024
 """
 
 # convert to NIFTI
